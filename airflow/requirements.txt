@@ -1,0 +1,9 @@
+celery
+kombu
+tornado
+werkzeug
+pyspark==3.2.1
+SQLAlchemy
+wtforms
+urllib3==1.26.6
+click==8.1.2
