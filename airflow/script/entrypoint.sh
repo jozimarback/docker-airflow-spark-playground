@@ -41,6 +41,14 @@ wait_for_port() {
     sleep 5
   done
 }
+_AIRFLOW_DB_UPGRADE= 'true'
+_AIRFLOW_WWW_USER_CREATE= 'true'
+_AIRFLOW_WWW_USER_USERNAME= "airflow"
+_AIRFLOW_WWW_USER_PASSWORD= "airflow"
+export _AIRFLOW_DB_UPGRADE
+export _AIRFLOW_WWW_USER_CREATE
+export _AIRFLOW_WWW_USER_PASSWORD
+export _AIRFLOW_WWW_USER_PASSWORD
 
 # Other executors than SequentialExecutor drive the need for an SQL database, here PostgreSQL is used
 if [ "$AIRFLOW__CORE__EXECUTOR" != "SequentialExecutor" ]; then
@@ -110,6 +118,7 @@ fi
 
 case "$1" in
   webserver)
+    airflow users create -u admin -p admin -e admin@admin.com -f admin -l admin -r Admin
     airflow db init
     if [ "$AIRFLOW__CORE__EXECUTOR" = "LocalExecutor" ] || [ "$AIRFLOW__CORE__EXECUTOR" = "SequentialExecutor" ]; then
       # With the "Local" and "Sequential" executors it should all run in one container.

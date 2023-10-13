@@ -36,7 +36,7 @@ services:
             - ../playground/spark/app:/usr/local/spark/app # Spark Scripts (same path in airflow and spark)
             - ../playground/spark/resources:/usr/local/spark/resources # Spark Resources (same path in airflow and spark)
         ports:
-            - "8080:8080" #host:container
+            - "8082:8080" #host:container
         command: webserver
         healthcheck:
             test: ["CMD-SHELL", "[ -f /usr/local/airflow/airflow-webserver.pid ]"]
