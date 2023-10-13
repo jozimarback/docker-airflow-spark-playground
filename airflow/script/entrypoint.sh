@@ -41,14 +41,6 @@ wait_for_port() {
     sleep 5
   done
 }
-_AIRFLOW_DB_UPGRADE= 'true'
-_AIRFLOW_WWW_USER_CREATE= 'true'
-_AIRFLOW_WWW_USER_USERNAME= "airflow"
-_AIRFLOW_WWW_USER_PASSWORD= "airflow"
-export _AIRFLOW_DB_UPGRADE
-export _AIRFLOW_WWW_USER_CREATE
-export _AIRFLOW_WWW_USER_PASSWORD
-export _AIRFLOW_WWW_USER_PASSWORD
 
 # Other executors than SequentialExecutor drive the need for an SQL database, here PostgreSQL is used
 if [ "$AIRFLOW__CORE__EXECUTOR" != "SequentialExecutor" ]; then
