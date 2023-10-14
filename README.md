@@ -5,7 +5,7 @@ Docker with Airflow + Postgres + Spark cluster + JDK (spark-submit support) + Ju
 
 * **airflow-webserver**: Airflow webserver and scheduler, with spark-submit support.
     * image: docker-airflow2:latest (custom, Airflow version 2.2.4)
-    * port: 8080
+    * port: 8082
 
 * **postgres**: Postgres database, used by Airflow.
     * image: postgres:13.6
@@ -47,18 +47,18 @@ docker-compose -f docker-compose.yml up -d
 
 ### Check accesses
 
-* Airflow: http://localhost:8080
+* Airflow: http://localhost:8082
 * Spark Master: http://localhost:8081
 * Jupyter Notebook: http://localhost:8888 (follow the instructions to get a token)
   
 ## 👣 Additional steps
   
-### Create a test user for Airflow
+### Login airflow
   
-```sh
-docker-compose run airflow-webserver airflow users create --role Admin --username admin \
-      --email admin --firstname admin --lastname admin --password admin
-```
+* user: airflow@airflow.com
+* pass: airflow
+
+
 ### Edit connection from Airflow to Spark
 
 * Go to Airflow UI > Admin > Edit connections
