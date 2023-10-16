@@ -66,3 +66,5 @@ docker-compose -f docker-compose.yml up -d
   * Connection Type: Spark
   * Host: spark://spark
   * Port: 7077 
+
+![spark_conn_airflow](./docs/spark_conn_airflow.png)
